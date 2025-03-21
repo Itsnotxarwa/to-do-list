@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faFloppyDisk } from "@fortawesome/free-solid-svg-icons";
 import { faSquareCheck, faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+
 
 function ToDoItem(props) {
   function markDone() {
@@ -14,11 +16,24 @@ function ToDoItem(props) {
     setIsChecked(!isChecked);
   }
 
+  const [isEditing, setEditing] = useState(true)
+  const textEdit = () => setEditing(!isEditing);
+
+  const [inputText, setInputText] = useState(props.text)
+  const [newText, setNewText] = useState(inputText)
+  
+  const handleChange = (e) => setNewText(e.target.value)
+  
+  const handleSave = () => {
+    setInputText(newText);
+    setEditing(!isEditing);
+  };
+
   return (
-    <li
-    // style={isDone ? { textDecoration: "line-through" } : null}
-    >
-      <span className="task-text"> {props.text} </span>
+    <li>
+      { isEditing ? ( <> 
+      
+      <span className="task-text"> {inputText} </span>
 
       <div className="icons">
         <FontAwesomeIcon
@@ -27,7 +42,16 @@ function ToDoItem(props) {
           className="icon"
         />
         <FontAwesomeIcon icon={faTrash} className="icon" onClick={markDone} />
-      </div>
+        <FontAwesomeIcon icon={faPenToSquare} className="icon" onClick={textEdit} />
+        </div> 
+
+        </>
+
+        ) : (<>
+        <input type="text" value={newText} onChange={handleChange}></input>
+        <FontAwesomeIcon icon={faFloppyDisk} className="icon" onClick={handleSave} />
+        </>) }
+
     </li>
   );
 }

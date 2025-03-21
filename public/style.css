@@ -80,6 +80,7 @@ body {
   
   li {
     display: flex;
+    gap:10px;
     align-items: center;
     justify-content: space-between;
     padding: 8px;
@@ -99,5 +100,16 @@ body {
   .icon {
     color: hsl(198, 1%, 29%);
     cursor: pointer;
+  }
+  .editSection {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  input {
+    border: none;
+    outline: none;
+    background-color: transparent;
   }
   

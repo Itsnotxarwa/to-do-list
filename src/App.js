@@ -5,6 +5,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
+
   function handleChange(event) {
     const newValue = event.target.value;
     setInput(newValue);
@@ -40,14 +41,14 @@ function App() {
       </div>
       <div>
         <ul>
-          {todos.map((todoItem, index) => (
+        { todos.map((todoItem, index) => (
             <ToDoItem
               key={index}
               id={index}
               text={todoItem}
               onDelete={removeItem}
             />
-          ))}
+          ))} 
         </ul>
       </div>
     </div>
