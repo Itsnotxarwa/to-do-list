@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/to-do-list/static/js/main.40517eda.js",
+    "index.html": "/to-do-list/index.html",
+    "main.40517eda.js.map": "/to-do-list/static/js/main.40517eda.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.40517eda.js"
+  ]
+}
